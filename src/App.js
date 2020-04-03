@@ -1,13 +1,10 @@
 import React from "react";
+import Timer from "Timer";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-      </header>
+      <Timer minute={20} second={10} />
     </div>
   );
 }
