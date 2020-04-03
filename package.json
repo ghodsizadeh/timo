@@ -6,12 +6,15 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "flow-bin": "^0.122.0",
     "husky": "^4.2.3",
     "lint-staged": "^10.1.1",
     "prettier": "^2.0.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.4.1",
+    "source-map-explorer": "^2.4.2"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
@@ -19,6 +22,8 @@
     ]
   },
   "scripts": {
+    "analyze": "source-map-explorer 'build/static/js/*.js'",
+    "flow": "flow",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
