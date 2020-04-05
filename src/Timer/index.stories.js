@@ -10,7 +10,7 @@ export default {
 };
 
 export const TimeData = {
-  minute: 20,
+  minute: 1,
   second: 13,
 };
 

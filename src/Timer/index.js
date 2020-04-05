@@ -1,8 +1,8 @@
 // @flow
 import React, { useState, useEffect } from "react";
 import InnerCircle from "./InnerCircle";
-import useInterval from "components/useInterval";
 
+import OuterCircle from "./OuterCircle";
 type Props = {
   minute: number,
   second: number,
@@ -15,8 +15,8 @@ export default function Timer(props: Props) {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setTime((time) => time - 1);
-    }, 1000);
+      setTime((time) => time - 0.0125);
+    }, 12.5);
     return () => {
       clearInterval(interval);
     };
@@ -24,7 +24,9 @@ export default function Timer(props: Props) {
 
   return (
     <div>
-      <InnerCircle remainingTime={time} />
+      <OuterCircle total_time={totalSecond} remaning_time={time}>
+        <InnerCircle remainingTime={time} />
+      </OuterCircle>
       {type}'ss'
     </div>
   );
