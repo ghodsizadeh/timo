@@ -1,33 +1,42 @@
 // @flow
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import InnerCircle from "./InnerCircle";
 
 import OuterCircle from "./OuterCircle";
 type Props = {
   minute: number,
   second: number,
-  type: "focus" | "shortBreak" | "longBreak",
+  kind: "focus" | "shortBreak" | "longBreak",
 };
 export default function Timer(props: Props) {
-  const { minute, second, type } = props;
+  const { minute, second, kind } = props;
   const totalSecond: number = minute * 60 + second;
   const [time, setTime] = useState(totalSecond);
-
+  const interval = useRef(null);
   useEffect(() => {
-    const interval = setInterval(() => {
+    interval.current = setInterval(() => {
       setTime((time) => time - 0.0125);
     }, 12.5);
     return () => {
-      clearInterval(interval);
+      clearInterval(interval.current);
     };
   }, []);
+  useEffect(() => {
+    if (time <= 0.01) {
+      timerStopHanlder();
+    }
+  }, [time]);
 
   return (
     <div>
-      <OuterCircle total_time={totalSecond} remaning_time={time}>
+      <OuterCircle total_time={totalSecond} remaining_time={time} kind={kind}>
         <InnerCircle remainingTime={time} />
       </OuterCircle>
-      {type}'ss'
     </div>
   );
+
+  function timerStopHanlder() {
+    setTime(0);
+    clearInterval(interval.current);
+  }
 }

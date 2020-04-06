@@ -20,23 +20,32 @@ const useStyles = makeStyles((theme: Theme) => ({
 const COLORS = {
   focus: {
     fill: "#C13C37",
-    blank: "#C13C37",
+    blank: "#f0efed",
+  },
+  shortBreak: {
+    fill: "#196333",
+    blank: "#f0efed",
+  },
+  longBreak: {
+    fill: "#003c7d",
+    blank: "#f0efed",
   },
 };
 type Props = {
   children: React.Node,
   total_time: number,
-  remaning_time: number,
+  remaining_time: number,
+  kind: "shortBreak" | "longBreak" | "focus",
 };
 
 export default function OutterCircle(props: Props) {
-  const { children, total_time, remaning_time } = props;
+  const { children, total_time, remaining_time } = props;
+  const kind = props.kind || "shortBreak";
   const classes = useStyles();
+  // console.log("hello", kind, COLORS);
 
-  // const background = `linear-gradient( -90deg,Green 0% Green 30%, white 30%)`;
-  const value = (1 - remaning_time / total_time) * 100;
-  const background = `linear-gradient(to right, transparent 50%, yellow  0`;
-  // console.log("hello", value, 100 - value);
+  const { [kind]: color } = COLORS;
+  const value = (1 - remaining_time / total_time) * 100;
 
   return (
     <Paper
@@ -53,12 +62,12 @@ export default function OutterCircle(props: Props) {
         cy={50}
         data={[
           {
-            color: "#E38627",
+            color: color.fill,
             title: "One",
             value: value,
           },
           {
-            color: "#C13C37",
+            color: color.blank,
             title: "Two",
             value: 100 - value,
           },

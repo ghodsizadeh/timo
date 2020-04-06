@@ -10,11 +10,12 @@ export default {
 };
 
 export const TimeData = {
-  minute: 1,
-  second: 13,
+  minute: 0,
+  second: 4,
 };
 
-export const Focus = () => <Timer {...TimeData} type="focus" />;
-export const shortBreak = () => <Timer {...TimeData} type="shortBreak" />;
+export const Focus = () => <Timer {...TimeData} kind="focus" />;
+export const shortBreak = () => <Timer {...TimeData} kind="shortBreak" />;
+export const longBreak = () => <Timer {...TimeData} kind="longBreak" />;
 
 export const Inside = () => (InnerCircle) => <InnerCircle {...TimeData} />;
