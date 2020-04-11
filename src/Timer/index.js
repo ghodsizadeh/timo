@@ -9,7 +9,8 @@ type Props = {
   kind: "focus" | "shortBreak" | "longBreak",
 };
 export default function Timer(props: Props) {
-  const { minute, second, kind } = props;
+  const { minute, kind } = props;
+  const second = props.second || 0;
   const totalSecond: number = minute * 60 + second;
   const [time, setTime] = useState(totalSecond);
   const interval = useRef(null);
@@ -22,7 +23,7 @@ export default function Timer(props: Props) {
     };
   }, []);
   useEffect(() => {
-    if (time <= 0.01) {
+    if (time <= 0.0126) {
       timerStopHanlder();
     }
   }, [time]);
