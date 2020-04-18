@@ -33,7 +33,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "story": "start-storybook"
+    "story": "start-storybook -p 4545"
   },
   "eslintConfig": {
     "extends": "react-app"
