@@ -74,14 +74,14 @@ export default function Pomodoro() {
 
   function handleFocus() {
     setKind("focus");
-    setTime(25);
+    setTime(2);
   }
   function handleBreak() {
     setKind("shortBreak");
-    setTime(5);
+    setTime(1);
   }
   function handleLongBreak() {
     setKind("longBreak");
-    setTime(15);
+    setTime(3);
   }
 }

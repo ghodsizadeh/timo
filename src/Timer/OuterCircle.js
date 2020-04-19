@@ -19,16 +19,16 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 const COLORS = {
   focus: {
-    fill: "#C13C37",
-    blank: "#f0efed",
+    blank: "#C13C37",
+    fill: "#f0efed",
   },
   shortBreak: {
-    fill: "#196333",
-    blank: "#f0efed",
+    blank: "#196333",
+    fill: "#f0efed",
   },
   longBreak: {
-    fill: "#003c7d",
-    blank: "#f0efed",
+    blank: "#003c7d",
+    fill: "#f0efed",
   },
 };
 type Props = {
